@@ -466,6 +466,11 @@ impl Selector {
         self.1
     }
 
+    /// Returns index of this selector
+    pub fn index(&self) -> usize {
+        self.0
+    }
+
     /// Return expression from selector
     pub fn expr<F: Field>(&self) -> Expression<F> {
         Expression::Selector(*self)
@@ -2239,6 +2244,11 @@ impl<F: Field> ConstraintSystem<F> {
     pub fn num_instance_columns(&self) -> usize {
         self.num_instance_columns
     }
+
+    /// Returns number of selectors
+    pub fn num_selectors(&self) -> usize {
+        self.num_selectors
+    }    
 
     /// Returns number of challenges
     pub fn num_challenges(&self) -> usize {
